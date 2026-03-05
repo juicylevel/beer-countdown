@@ -6,7 +6,7 @@ let theme = createTheme({
     },
     defaultColorScheme: 'dark',
     typography: {
-        fontFamily: 'Roboto Slab, sans-serif',
+        fontFamily: 'Roboto, sans-serif',
         subtitle2: {
             fontSize: '1rem',
         },

@@ -1,5 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 import { useCountDown } from './use-count-down';
+import { BeerMugsSnow } from './beer-mugs-snow';
 
 export const Countdown = () => {
     const searchParams: URLSearchParams = new URLSearchParams(
@@ -7,13 +8,14 @@ export const Countdown = () => {
     );
 
     const deadline = searchParams.get('deadline') ?? '';
-    const title = searchParams.get('title');
-    const message = searchParams.get('message');
+    const title = searchParams.get('title') ?? 'Title';
+    const message = searchParams.get('message') ?? "Let's go drink beer!";
 
     const countdown = useCountDown({
         deadline,
         format: ['hours', 'minutes', 'seconds'],
         short: true,
+        onComplete: () => alert('Время истекло!'),
     });
 
     return (
@@ -35,6 +37,7 @@ export const Countdown = () => {
                 {countdown}
             </Typography>
             {message && <Typography variant="h5">{message}</Typography>}
+            <BeerMugsSnow />
         </Stack>
     );
 };
